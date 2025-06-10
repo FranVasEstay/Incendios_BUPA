@@ -1,0 +1,26 @@
+---
+title: "Metodología Estadística"
+output: html_document
+---
+
+El siguiente archivo detalla la metodología empleada en la investigación. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+## Administración de datos
+
+
+## Análisis estadístico
+
+Utilizamos un diseño de serie de tiempo interrumpido para evaluar el impacto de los incendios en las consultas ambulatorias. El modelo incluyó:
+
+```{r}
+# Código del modelo principal
+modelo_principal <- glm(consultas ~ incendio + tiempo + ...)
+
+```
+
+Los análisis secundarios exploraron interacciones entre temperatura y contaminación mediante modelos aditivos generalizados (GAMs).
+
+Hicimos también un análisis Diff and Diff entre los datos de Viña del Mar/Valparaíso y los datos obtenidos para la región metropolitana (control).
