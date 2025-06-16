@@ -128,8 +128,8 @@ leaflet(datos_simulados) %>%
 
 ## Modelado de serie interrumpida de tiempo
 ### Serie interrumpida de tiempo (ITS)
-# Supongamos que el incendio comenzó el 15 de febrero de 2023
-fecha_incendio <- as.Date("2023-02-15")
+# Supongamos que el incendio comenzó el 05 de febrero de 2024
+fecha_incendio <- as.Date("2024-02-05")
 datos_simulados <- datos_simulados %>%
   mutate(
     incendio = ifelse(fecha >= fecha_incendio, 1, 0),  # 1 = post-incendio
