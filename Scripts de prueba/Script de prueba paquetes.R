@@ -80,7 +80,7 @@ library(tidyverse)
 set.seed(123)
 
 datos_simulados <- tibble(
-  fecha = seq.Date(as.Date("2023-01-01"), as.Date("2023-12-31"), by = "day"),
+  fecha = seq.Date(as.Date("2023-01-01"), as.Date("2024-12-31"), by = "day"),
   pm25 = round(20 + 10 * sin(seq(0, 2*pi, length.out = 365) + rnorm(365, sd = 5))),  # PM2.5 con estacionalidad
   consultas = round(50 + pm25 * 0.8 + rnorm(365, sd = 10)),  # Relación PM-consultas
   sexo = sample(c("F", "M"), 365, replace = TRUE),
@@ -147,8 +147,8 @@ library(zoo)  # Para trabajar con series temporales
 
 # Crear un objeto zoo (serie temporal con fechas)
 ts_consultas <- zoo(datos_simulados$consultas, order.by = datos_simulados$fecha)
-pre_period <- c(as.Date("2023-01-01"), as.Date("2023-02-15"))
-post_period <- c(as.Date("2023-02-16"), as.Date("2023-12-31"))
+pre_period <- c(as.Date("2023-01-01"), as.Date("2024-02-04"))
+post_period <- c(as.Date("2024-02-06"), as.Date("2024-12-31"))
 
 impact <- CausalImpact(ts_consultas, pre_period, post_period)
 plot(impact)
